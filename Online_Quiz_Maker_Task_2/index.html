@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizora | Online Quiz Maker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#" onclick="showPage('home')">Quizora</a>
+    <nav>
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('quizzes')">Quizzes</button>
+      <button onclick="showPage('create')">Create Quiz</button>
+      <button id="authBtn" onclick="openAuth()">Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div>
+          <span class="badge">ONLINE QUIZ MAKER</span>
+          <h1>Create. Play. <span>Learn.</span></h1>
+          <p>Create your own multiple-choice quizzes or take quizzes created by others. Get your score and correct answers instantly.</p>
+          <div class="hero-actions">
+            <button class="primary" onclick="showPage('create')">Create a Quiz</button>
+            <button class="secondary" onclick="showPage('quizzes')">Take a Quiz</button>
+          </div>
+        </div>
+        <div class="quiz-art">
+          <div class="circle">?</div>
+          <div class="float-card c1">✓ Correct</div>
+          <div class="float-card c2">🎯 90%</div>
+          <div class="float-card c3">🧠 Learn</div>
+        </div>
+      </div>
+      <div class="features">
+        <div class="feature"><b>📝</b><h3>Easy Creation</h3><p>Add questions and four options with one correct answer.</p></div>
+        <div class="feature"><b>⚡</b><h3>Instant Results</h3><p>See your score and correct answers immediately.</p></div>
+        <div class="feature"><b>📱</b><h3>Responsive</h3><p>Works smoothly on mobile, tablet and desktop.</p></div>
+      </div>
+    </section>
+
+    <section id="auth" class="page">
+      <div class="auth-card">
+        <h2 id="authTitle">Login</h2>
+        <p id="authText">Login to create and manage quizzes.</p>
+        <form id="authForm">
+          <input id="authName" placeholder="Name" style="display:none">
+          <input id="authEmail" type="email" placeholder="Email" required>
+          <input id="authPassword" type="password" placeholder="Password" required>
+          <button class="primary" type="submit" id="authSubmit">Login</button>
+        </form>
+        <button class="link-btn" onclick="toggleAuth()">Don't have an account? Register</button>
+      </div>
+    </section>
+
+    <section id="create" class="page">
+      <div class="section-head">
+        <div><span class="badge">QUIZ CREATION</span><h2>Create a New Quiz</h2></div>
+      </div>
+      <form id="quizForm" class="builder">
+        <input id="quizTitle" placeholder="Quiz title (e.g. Java Basics)" required>
+        <textarea id="quizDescription" placeholder="Short description"></textarea>
+        <div id="questionList"></div>
+        <div class="builder-actions">
+          <button type="button" class="secondary" onclick="addQuestion()">+ Add Question</button>
+          <button type="submit" class="primary">Publish Quiz</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="quizzes" class="page">
+      <div class="section-head">
+        <div><span class="badge">QUIZ LISTING</span><h2>Available Quizzes</h2></div>
+        <input id="searchBox" class="search" placeholder="Search quizzes..." oninput="renderQuizList()">
+      </div>
+      <div id="quizGrid" class="quiz-grid"></div>
+    </section>
+
+    <section id="take" class="page">
+      <div class="take-wrap">
+        <div class="progress-line"><span id="progressText"></span><div><i id="progressBar"></i></div></div>
+        <h2 id="takeTitle"></h2>
+        <p id="takeDescription" class="muted"></p>
+        <div id="questionCard" class="question-card"></div>
+        <div class="take-actions">
+          <button class="secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
+          <button class="primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="page">
+      <div class="result-card">
+        <span class="badge">QUIZ RESULTS</span>
+        <h2 id="resultTitle">Quiz Complete!</h2>
+        <div class="score-circle"><strong id="scoreValue">0%</strong><small id="scoreFraction"></small></div>
+        <p id="resultMessage"></p>
+        <div id="answerReview"></div>
+        <div class="hero-actions">
+          <button class="primary" onclick="showPage('quizzes')">Take Another Quiz</button>
+          <button class="secondary" onclick="showPage('home')">Home</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Quizora • Online Quiz Maker</footer>
+  <script src="script.js"></script>
+</body>
+</html>
