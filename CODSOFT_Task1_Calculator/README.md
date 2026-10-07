@@ -14,9 +14,8 @@ A basic interactive calculator built using:
 - Responsive calculator layout
 
 ## How to Run
-1. Extract the ZIP file.
-2. Open `index.html` in a web browser.
-3. Use the calculator buttons or your keyboard.
+1. Open `index.html` in a web browser.
+2. Use the calculator buttons or your keyboard.
 
 ## CODSOFT
 Internship Task 1 - Calculator
