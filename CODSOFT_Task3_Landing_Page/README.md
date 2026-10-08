@@ -1,4 +1,4 @@
-# Nextora - Landing Page (Level 1 Task 2)
+# Nextora - Landing Page 
 
 A responsive landing page built with only **HTML and CSS** (no JavaScript).
 
